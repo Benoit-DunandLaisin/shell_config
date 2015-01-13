@@ -24,9 +24,6 @@ call vundle#end()
 " ==========================================================
 let mapleader="," " change the leader to be a comma vs slash
 
-" sudo write this
-cmap W! w !sudo tee % >/dev/null
-
 " Reload Vimrc
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
@@ -168,4 +165,4 @@ let g:flake8_max_line_length=160
 
 set listchars=trail:◃,nbsp:•
 set list
-
+set fileformats=unix
