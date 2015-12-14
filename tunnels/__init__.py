@@ -25,7 +25,7 @@ class DB(object):
             print("Unknown daemon {}".format(idd))
         else:
             data = dict(self.config.items(idd))
-            pid = Popen(['/usr/bin/ssh', '-ND', data['port'], data['target']]).pid
+            pid = Popen(['/usr/bin/ssh', '-o', 'Controlmaster no', '-ND', data['port'], data['target']]).pid
             with open(join(self.tempdir, idd), 'w') as fic:
                 fic.write(str(pid))
             print("Daemon {} started with pid {}".format(idd, pid))
