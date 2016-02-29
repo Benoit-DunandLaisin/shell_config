@@ -16,7 +16,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Gundo'
-Plugin 'andviro/flake8-vim'
 
 call vundle#end()
 " ==========================================================
@@ -157,11 +156,9 @@ set guifont=Monaco:h1
 set foldmethod=indent
 set foldlevel=99
 
-" Flake configuration
-let g:PyFlakeDisabledMessages = 'E309,E226'
-let g:PyFlakeMaxLineLength = 160
-let g:flake8_ignore="E309,E226"
-let g:flake8_max_line_length=160
+let g:syntastic_python_checkers=['flake8', 'pep8', 'pylint']
+let g:syntastic_python_flake8_args='--ignore=E309,E226,E402,E731 --max-line-length=160'
+let g:syntastic_python_pylint_args='-d C0301'
 
 set listchars=trail:◃,nbsp:•
 set list
