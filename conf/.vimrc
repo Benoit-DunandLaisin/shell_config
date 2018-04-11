@@ -159,6 +159,8 @@ set foldlevel=99
 let g:syntastic_python_checkers=['flake8', 'pep8', 'pylint']
 let g:syntastic_python_flake8_args='--ignore=E309,E226,E402,E731 --max-line-length=160'
 let g:syntastic_python_pylint_args='-d C0301'
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list = 1
 
 set listchars=trail:◃,nbsp:•
 set list
