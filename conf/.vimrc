@@ -9,13 +9,15 @@ let g:ycm_server_log_level = 'debug'
 Plugin 'gmarik/vundle'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'sjl/gundo.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Gundo'
+Plugin 'kannokanno/previm'
+Plugin 'tyru/open-browser.vim'
 
 call vundle#end()
 " ==========================================================
@@ -156,11 +158,12 @@ set guifont=Monaco:h1
 set foldmethod=indent
 set foldlevel=99
 
-let g:syntastic_python_checkers=['flake8', 'pep8', 'pylint']
-let g:syntastic_python_flake8_args='--ignore=E309,E226,E402,E731 --max-line-length=160'
+let g:syntastic_python_checkers=['flake8', 'pylint']
+let g:syntastic_python_flake8_args='--ignore=E309,E226,E402,E731 --max-line-length=120'
 let g:syntastic_python_pylint_args='-d C0301'
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_yaml_checkers = ['yamllint']
 
 set listchars=trail:◃,nbsp:•
 set list
