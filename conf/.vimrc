@@ -1,6 +1,7 @@
 set nocompatible " be iMproved
 filetype off " required!
 
+if has("viminfo")
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 let g:ycm_server_keep_logfiles = 1
@@ -12,14 +13,18 @@ Plugin 'tpope/vim-repeat'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'sjl/gundo.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Gundo'
-Plugin 'kannokanno/previm'
+Plugin 'previm/previm'
 Plugin 'tyru/open-browser.vim'
+Plugin 'chaquotay/ftl-vim-syntax'
 
+if v:version >= 800
+Plugin 'Valloric/YouCompleteMe'
+endif
 call vundle#end()
+endif
 " ==========================================================
 " Shortcuts
 " ==========================================================
@@ -136,7 +141,6 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 map <C-space> :bn <CR>
 map <C-M-space> :bp <CR>
 
-colorscheme solarized
 set background=dark
 
 set noswapfile
@@ -155,9 +159,6 @@ endif
 hi DiffText gui=underline guibg=red guifg=black
 set guifont=Monaco:h1
 
-set foldmethod=indent
-set foldlevel=99
-
 let g:syntastic_python_checkers=['flake8', 'pylint']
 let g:syntastic_python_flake8_args='--ignore=E309,E226,E402,E731 --max-line-length=120'
 let g:syntastic_python_pylint_args='-d C0301'
@@ -165,6 +166,14 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_yaml_checkers = ['yamllint']
 
+let g:ycm_confirm_extra_conf = 0
+
 set listchars=trail:◃,nbsp:•
 set list
 set fileformats=unix
+
+if has("viminfo")
+colorscheme solarized
+set foldmethod=indent
+set foldlevel=99
+endif
